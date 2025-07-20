@@ -2,95 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Vaibhav Portfolio Design System - Futuristic Healthcare Theme
+All colors MUST be HSL. Dark cosmic background with neon accents.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors */
+    --background: 240 65% 10%;          /* #0a0a23 - Deep cosmic background */
+    --foreground: 0 0% 100%;            /* #ffffff - Pure white text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Neon Accent Colors */
+    --neon-violet: 264 100% 67%;        /* #a259ff - Primary neon violet */
+    --neon-cyan: 187 100% 50%;          /* #00e5ff - Secondary cyan glow */
+    --neon-blue: 195 100% 65%;          /* #42a5ff - Tertiary blue accent */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Glass/Card Colors */
+    --card: 240 50% 8%;                 /* Slightly lighter than background */
+    --card-foreground: 0 0% 100%;
+    --glass: 240 30% 15%;               /* Glassmorphic overlay */
+    --glass-border: 240 50% 25%;        /* Glass border */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Semantic Colors */
+    --primary: 264 100% 67%;            /* Neon violet */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 187 100% 50%;          /* Neon cyan */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 195 100% 65%;             /* Neon blue */
+    --accent-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* UI States */
+    --muted: 240 20% 20%;
+    --muted-foreground: 240 10% 70%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Interactive Elements */
+    --border: 240 30% 25%;
+    --input: 240 30% 15%;
+    --ring: 264 100% 67%;               /* Neon violet ring */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Design System */
+    --radius: 0.75rem;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Gradients and Effects */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-violet)), hsl(var(--neon-cyan)));
+    --gradient-glass: linear-gradient(135deg, hsla(var(--glass) / 0.1), hsla(var(--glass) / 0.3));
+    --gradient-dark: linear-gradient(180deg, hsl(var(--background)), hsl(240 70% 5%));
+    
+    /* Shadows and Glows */
+    --glow-violet: 0 0 20px hsla(var(--neon-violet) / 0.5);
+    --glow-cyan: 0 0 20px hsla(var(--neon-cyan) / 0.5);
+    --glow-soft: 0 4px 20px hsla(var(--neon-violet) / 0.15);
+    --shadow-glass: 0 8px 32px hsla(240 50% 5% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
@@ -100,6 +68,110 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', sans-serif;
+    cursor: none; /* Custom cursor will be implemented */
   }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--neon-violet));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--neon-cyan));
+  }
+}
+
+@layer components {
+  /* Glassmorphic Card */
+  .glass-card {
+    @apply backdrop-blur-lg bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-xl;
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Neon Glow Effects */
+  .glow-violet {
+    box-shadow: var(--glow-violet);
+  }
+  
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  
+  .glow-soft {
+    box-shadow: var(--glow-soft);
+  }
+
+  /* Neon Button */
+  .btn-neon {
+    @apply px-8 py-4 bg-transparent border-2 border-primary text-primary font-semibold rounded-lg;
+    @apply hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    box-shadow: 0 0 20px hsla(var(--primary) / 0.3);
+  }
+  
+  .btn-neon:hover {
+    box-shadow: 0 0 30px hsla(var(--primary) / 0.6);
+  }
+
+  /* Neon Text */
+  .text-neon-violet {
+    color: hsl(var(--neon-violet));
+    text-shadow: 0 0 10px hsla(var(--neon-violet) / 0.5);
+  }
+  
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+    text-shadow: 0 0 10px hsla(var(--neon-cyan) / 0.5);
+  }
+
+  /* Custom Cursor */
+  .cursor-glow {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: hsl(var(--neon-violet));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 20px hsl(var(--neon-violet));
+    transition: transform 0.1s ease;
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsla(var(--neon-violet) / 0.5); }
+  to { box-shadow: 0 0 30px hsla(var(--neon-violet) / 0.8), 0 0 40px hsla(var(--neon-cyan) / 0.3); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
